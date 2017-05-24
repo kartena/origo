@@ -32,6 +32,9 @@
     },
     {
       "name": "measure"
+    },
+    {
+      "name": "timeline"
     }
   ],
   "footer": [{
@@ -102,7 +105,30 @@
       "expanded": true
     }
   ],
-  "layers": [
+  "layers": [{
+		"name": "nyggnadsar",
+		"title": "Byggnadsår",
+		"group": "test",
+		"source": "data/1970-1979-3857.geojson",
+		"style": "timeline",
+		"type": "GEOJSON",
+		"visible": true,
+		"queryable": true,
+        "attributes": [
+          {
+            "name": "ar_nybygg"
+          }
+        ],
+        "timeline": {
+		  "name": "byggnadsar",
+		  "attrName": "ar_nybygg",
+		  "range": [1970,1979],
+		  "step": 1,
+		  "colors": ["magenta", "red", "yellow", "green", "cyan", "blue"],
+		  "tickLabels_h": {"1970": "1970", "1979": "1979"},
+		  "tickLabels_v": {"1970": "1970", "1979": "1979"}
+	    }
+    },
     {
       "name": "origo-cities",
       "title": "Origokommuner",
@@ -115,7 +141,7 @@
             "name": "name"
           }
       ],
-      "visible": true
+      "visible": false
     },
     {
       "name": "origo-mask",
@@ -218,6 +244,16 @@
           {
             "image": {
               "src": "img/png/orto.png"
+            }
+          }
+        ]
+      ],
+      "timeline": [
+        [
+          {
+            "icon": {
+              "src": "img/png/timeline.png",
+              "size": [20,20]
             }
           }
         ]

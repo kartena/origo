@@ -38,7 +38,8 @@ var layerCreator = function layerCreator(opt_options) {
     visible: false,
     type: undefined,
     extent: undefined,
-    attributes: undefined
+    attributes: undefined,
+    timeline: undefined,
   };
   var projection = viewer.getProjection();
   var options = opt_options || {};
