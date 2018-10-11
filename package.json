@@ -19,8 +19,7 @@
     "build-sass": "node-sass --include-path scss scss/origo.scss dist/style.css",
     "build-js": "webpack --config ./tasks/webpack.prod.js",
     "build-js-analyze": "webpack --config ./tasks/webpack.analyze.js",
-    "copy": "webpack --config ./tasks/webpack.copy.js",
-    "postinstall": "npm run prebuild-sass"
+    "copy": "webpack --config ./tasks/webpack.copy.js"
   },
   "dependencies": {
     "awesomplete": "1.1.2",
