@@ -1,9 +1,9 @@
-import $ from 'jquery';
-import viewer from './src/viewer';
-import mapLoader from './src/maploader';
-import controlInitialiser from './src/controlinitialiser';
-import origoConfig from './conf/origoConfig';
-import controls from './conf/origoControls';
+import $ from "jquery";
+import viewer from "./src/viewer";
+import mapLoader from "./src/maploader";
+import controlInitialiser from "./src/controlinitialiser";
+import origoConfig from "./conf/origoConfig";
+import controls from "./conf/origoControls";
 
 const origo = {};
 origo.map = {};
@@ -14,15 +14,17 @@ function init(config) {
   viewer.init(config.el, config.options);
 
   // Init controls
-  controlInitialiser(config.options.controls);
+  controlInitialiser(origo, config.options.controls);
 }
 
 origo.map.init = function initMap(options, defaultOptions) {
-  const config = defaultOptions ? $.extend(origo.config, defaultOptions) : origo.config;
+  const config = defaultOptions
+    ? $.extend(origo.config, defaultOptions)
+    : origo.config;
 
   const map = mapLoader(options, config);
   if (map) {
-    map.then((mapConfig) => {
+    map.then(mapConfig => {
       init(mapConfig);
     });
     return viewer;

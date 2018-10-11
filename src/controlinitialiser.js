@@ -1,7 +1,7 @@
-const controlInitialiser = (controls) => {
+const controlInitialiser = (origo, controls) => {
   let controlName;
   let controlOptions;
-  controls.forEach((control) => {
+  controls.forEach(control => {
     controlName = control.name;
     controlOptions = control.options || undefined;
     if (Object.prototype.hasOwnProperty.call(origo.controls, controlName)) {
