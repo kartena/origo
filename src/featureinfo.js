@@ -28,6 +28,7 @@ let overlay;
 let hitTolerance;
 let items;
 let popup;
+let onClickHandler;
 
 function clear() {
   selectionLayer.clear();
@@ -181,10 +182,10 @@ function onClick(evt) {
 
 function setActive(state) {
   if (state) {
-    map.on(clickEvent, onClick);
+    map.on(clickEvent, onClickHandler);
   } else {
     clear();
-    map.un(clickEvent, onClick);
+    map.un(clickEvent, onClickHandler);
   }
 }
 
@@ -209,6 +210,7 @@ function init(optOptions) {
   const savedFeature = savedPin || savedSelection || undefined;
   selectionLayer = featurelayer(savedFeature, map);
   showOverlay = Object.prototype.hasOwnProperty.call(options, 'overlay') ? options.overlay : true;
+  onClickHandler = optOptions.featureEventHandler || onClick;
 
   if (showOverlay) {
     identifyTarget = 'overlay';
@@ -220,7 +222,7 @@ function init(optOptions) {
   clusterFeatureinfoLevel = Object.prototype.hasOwnProperty.call(options, 'clusterFeatureinfoLevel') ? options.clusterFeatureinfoLevel : 1;
   hitTolerance = Object.prototype.hasOwnProperty.call(options, 'hitTolerance') ? options.hitTolerance : 0;
 
-  map.on(clickEvent, onClick);
+  map.on(clickEvent, onClickHandler);
   $(document).on('enableInteraction', onEnableInteraction);
 }
 
