@@ -2,11 +2,17 @@ import $ from 'jquery';
 import viewer from '../viewer';
 import modal from '../modal';
 import validateUrl from '../utils/validateurl';
+import utils from '../utils';
 
 const symbolSize = 20;
 let styleSettings;
 let baseUrl;
 let hasMapLegend;
+
+const zoomCenterIcon = utils.createSvg({
+  href: '#o_centerposition_24px',
+  cls: 'o-icon-position-black'
+});
 
 function createFill(fillProperties) {
   const f = fillProperties;
@@ -133,6 +139,15 @@ function removeButtonClickHandler() {
   });
 }
 
+function toggleZoomCenterIcon(layerName) {
+  const $icon = $(`.${layerName}`).find('.zoom-center');
+  if ($icon.css('display') === 'none') {
+    $icon.css('display', 'inline-block');
+  } else {
+    $icon.css('display', 'none');
+  }
+}
+
 function createLegendItem(layerid, insertAfter, layerStyle, inSubgroup) {
   const layername = layerid.split('o-legend-').pop();
   const layer = viewer.getLayer(layername);
@@ -182,6 +197,7 @@ function createLegendItem(layerid, insertAfter, layerStyle, inSubgroup) {
                     <svg class="o-icon-fa-check-square-o"><use xlink:href="#fa-check-square-o"></use></svg>
                   </div>`;
     legendItem += layer.get('styleName') ? getSymbol(styleSettings[layer.get('styleName')]) : '';
+    legendItem += `<div class="zoom-center" style="float: right;">${zoomCenterIcon}</div>`;
     legendItem += `<div class="o-legend-item-title o-truncate">${layer.get('title')}</div>`;
 
     if (layer.get('abstract')) {
@@ -288,6 +304,8 @@ function toggleSubGroupCheck(subgroup, toggleAll) {
         $(`.${layername} .o-checkbox`).removeClass('o-checkbox-true');
         $(`.${layername} .o-checkbox`).addClass('o-checkbox-false');
 
+        toggleZoomCenterIcon(layername);
+
         if (inMapLegend === false) {
           offToggleCheck(`o-legend-${layername}`);
           $(`#o-legend-${layername}`).remove();
@@ -305,6 +323,9 @@ function toggleSubGroupCheck(subgroup, toggleAll) {
 
         $(`.${layername} .o-checkbox`).removeClass('o-checkbox-false');
         $(`.${layername} .o-checkbox`).addClass('o-checkbox-true');
+
+        toggleZoomCenterIcon(layername);
+
         layer.setVisible(true);
         layer.set('legend', true);
       }
@@ -339,6 +360,7 @@ function toggleSubGroupCheck(subgroup, toggleAll) {
   });
 }
 
+
 // Toggle layers
 function toggleCheck(layerid) {
   const layername = layerid.split('o-legend-').pop();
@@ -369,6 +391,8 @@ function toggleCheck(layerid) {
       $(`.${layername} .o-checkbox`).removeClass('o-checkbox-true');
       $(`.${layername} .o-checkbox`).addClass('o-checkbox-false');
 
+      toggleZoomCenterIcon(layername);
+
       if (inMapLegend === false) {
         offToggleCheck(`o-legend-${layername}`);
         $(`#o-legend-${layername}`).remove();
@@ -386,6 +410,9 @@ function toggleCheck(layerid) {
 
       $(`.${layername} .o-checkbox`).removeClass('o-checkbox-false');
       $(`.${layername} .o-checkbox`).addClass('o-checkbox-true');
+
+      toggleZoomCenterIcon(layername);
+
       layer.setVisible(true);
       layer.set('legend', true);
     }
@@ -407,6 +434,21 @@ function addTickListener(layer) {
       });
       evt.preventDefault();
     }
+  });
+}
+
+function addZoomAndCenterListener(layer) {
+  const $layer = $(`#${layer.get('name')}`);
+  const $zoomAndCenter = $layer.find('.zoom-center');
+  $zoomAndCenter.on('click', function func(evt) {
+    var evt = new CustomEvent('centeronlayer', {
+      detail:
+      {
+        layer: layer.get('name')
+      }
+    });
+    document.dispatchEvent(evt);
+    return false;
   });
 }
 
@@ -458,6 +500,7 @@ function addCheckbox(layer, name, inSubgroup) {
     }
   } else {
     $(`.${name} .o-checkbox`).addClass('o-checkbox-false');
+    toggleZoomCenterIcon(name);
   }
 }
 
@@ -641,6 +684,9 @@ function addLegend(groups) {
 
     // Event listener for tick layer
     addTickListener(layer);
+
+    // Custom Event listener for center&zoom on layer
+    addZoomAndCenterListener(layer);
 
     // Event listener for map legend layer
     addMapLegendListener(layer);
