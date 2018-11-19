@@ -197,7 +197,9 @@ function createLegendItem(layerid, insertAfter, layerStyle, inSubgroup) {
                     <svg class="o-icon-fa-check-square-o"><use xlink:href="#fa-check-square-o"></use></svg>
                   </div>`;
     legendItem += layer.get('styleName') ? getSymbol(styleSettings[layer.get('styleName')]) : '';
-    legendItem += `<div class="zoom-center" style="float: right;">${zoomCenterIcon}</div>`;
+    if (layer.type === 'VECTOR') {
+      legendItem += `<div class="zoom-center" style="float: right;">${zoomCenterIcon}</div>`;
+    }
     legendItem += `<div class="o-legend-item-title o-truncate">${layer.get('title')}</div>`;
 
     if (layer.get('abstract')) {
