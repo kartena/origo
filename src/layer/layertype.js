@@ -9,6 +9,7 @@ import xyz from './xyz';
 import osm from './osm';
 import vectortile from './vectortile';
 import feature from './featurelayer';
+import imagestatic from './imagestatic';
 
 const type = {};
 
@@ -23,5 +24,7 @@ type.XYZ = xyz;
 type.OSM = osm;
 type.VECTORTILE = vectortile;
 type.FEATURE = feature;
+type.IMAGESTATIC = imagestatic;
+
 
 export default type;
