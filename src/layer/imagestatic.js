@@ -1,4 +1,4 @@
-import Static from 'ol/source/ImageStatic';
+import Static from 'ol/source/imagestatic';
 import GeoJSON from 'ol/format/geojson';
 import $ from 'jquery';
 import viewer from '../viewer';
@@ -29,6 +29,11 @@ function createSource(options) {
         url: ''
       });
     });
+  });
+  let i = 0;
+  imageStaticSource.forEachFeature((imageFeature) => {
+    imageFeature.setId(i);
+    i += 1;
   });
 
   return imageStaticSource;
