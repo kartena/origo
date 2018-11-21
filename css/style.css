@@ -1648,13 +1648,11 @@
     width: 1.125rem;
     fill: #fff;
     float: none; }
-  .o-map .o-icon-position-black {
-    padding: 0;
-    padding-top: 1px;
-    height: 1rem;
-    width: 1rem;
-    fill: #000;
-    float: none; }
+    .o-map .o-icon-position-black {
+      padding-top: 1px;
+      height: 1rem;
+      width: 1rem;
+      fill: #000; }
   .o-map .o-icon-position-marker {
     height: 1.5rem;
     padding: 0;

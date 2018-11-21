@@ -10,6 +10,7 @@ module.exports = merge(common, {
     libraryExport: 'default',
     library: 'origo'
   },
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: './',
     port: 9966
