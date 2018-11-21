@@ -12,4 +12,19 @@
     ],
     "opacity": 0.75,
     "visible": true
+  },
+  {
+  "name": "_huddingeop",
+    "title": "Huddingeop geojson",
+    "group": "aoi",
+    "source": "data/huddingeop.geojson",
+    "style": "mask",
+    "type": "GEOJSON",
+    "attributes": [
+      { "name": "name", "title": "Namn: " },
+      { "name": "type", "title": "Klassificering: " },
+      { "name": "description", "title": "Beskrivning: " }
+    ],
+    "opacity": 0.75,
+    "visible": true
   },{"name":"gold_rivers_henrik_wgs84","title":"Gold Rivers Henrik Wgs84","group":"Google_Earth","source":"data/gold-rivers-henrik-wgs84.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"rufs2050","title":"Rufs2050","group":"Google_Earth","source":"data/RUFS 2050.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"kml_samples","title":"Kml Samples","group":"Google_Earth","source":"data/KML_Samples.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"test","title":"Test GeoJSON","group":"test","source":"data\\gold-rivers-henrik-wgs84.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"test","title":"Test GeoJSON","group":"test","source":"data\\KML_Samples.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"origo-cities","title":"Origokommuner","group":"test","source":"data/origo-cities-3857.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"origo-mask","opacity":0.25,"title":"origo-mask","group":"none","queryable":false,"source":"data/origo-mask-3857.geojson","style":"mask","type":"GEOJSON","visible":true},{"name":"osm-world","title":"OSM Crisp","queryable":false,"source":"osm_crisp","type":"WMS","style":"karta_farg","extent":[-1200128,4305920,2994176,8499968],"visible":true,"attribution":"(c) OSM Contributors"}],"styles":{"mask":[[{"stroke":{"color":"rgba(0,0,0,1.0)"},"fill":{"color":"rgba(0,0,0,1.0)"}}]],"origo-logo":[[{"circle":{"radius":16,"stroke":{"color":"rgba(0,0,0,1)","width":5},"fill":{"color":"rgba(255,255,255,0.9)"}}},{"circle":{"radius":4,"stroke":{"color":"rgba(0,0,0,0)","width":1},"fill":{"color":"rgba(37,129,196,1)"}}}]],"cirkel":[[{"circle":{"radius":6,"stroke":{"color":"rgba(0,0,0,1)","width":2},"fill":{"color":"rgba(0,0,0,0.5)"}}}]],"karta_gra":[[{"image":{"src":"img/png/gra.png"}}]],"karta_farg":[[{"image":{"src":"img/png/farg.png"}}]],"orto":[[{"image":{"src":"img/png/orto.png"}}]]}}
