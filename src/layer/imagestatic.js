@@ -1,6 +1,5 @@
 import ImageStatic from 'ol/source/imagestatic';
 import GeoJSON from 'ol/format/geojson';
-import Projection from 'ol/proj/projection';
 import $ from 'jquery';
 import viewer from '../viewer';
 import image from './image';
