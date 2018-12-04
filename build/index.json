@@ -1,0 +1,30 @@
+{"controls":[{"name":"home"},{"name":"mapmenu","options":{"isActive":false}},{"name":"sharemap"},{"name":"geoposition"},{"name":"print"},{"name":"about","options":{"buttonText":"Om Origo","title":"Om Origo","content":"<p>Origo är ett ramverk för webbkartor. Ramverket bygger på JavaScript-biblioteket OpenLayers 3. Du kan använda Origo för att skapa egna webbaserade kartapplikationer.</p><br><p>Projektet drivs och underhålls av ett antal svenska kommuner. Besök gärna <a href='https://github.com/origo-map/origo' target='_blank'>Origo på GitHub</a> för mer information.</p>"}},{"name":"link","options":{"title":"Origo","url":"https://github.com/origo-map/origo"}},{"name":"legend"},{"name":"position","options":{"title":"Web Mercator","projections":{"EPSG:4326":"WGS84","EPSG:3006":"Sweref99 TM"}}},{"name":"measure"},{"name":"scaleLine"}],"pageSettings":{"footer":{"img":"img/png/logo.png","url":"https://github.com/origo-map/origo","urlText":"Origo"},"mapGrid":{"visible":true}},"projectionCode":"EPSG:3006","projectionExtent":[181896.33,6101648.07,864416,7689478.31],"proj4Defs":[{"code":"EPSG:3006","projection":"+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"}],"extent":[-1200128,4305920,2994176,8499968],"center":[500000,6500000],"zoom":8,"resolutions":[131072,65536,32768,16384,8192,4096,2048,1024,512,256,128,64,32,16,8,4,2,1,0.5,0.25,0.125,0.0625,0.03125],"tileGrid":{"tileSize":512},"source":{"osm_crisp":{"url":"https://osrm1.kartena.se/mapproxy/service"}},"groups":[{"name":"test","title":"Test","expanded":true},{"name":"background","title":"Bakgrundskartor","expanded":true}],"layers":[{
+    "name": "_huddingeop",
+    "title": "Huddingeop",
+    "group": "aoi",
+    "source": "data/huddingeop.geojson",
+    "style": "mask",
+    "type": "IMAGESTATIC",
+    "attributes": [
+      { "name": "name", "title": "Namn: " },
+      { "name": "type", "title": "Klassificering: " },
+      { "name": "description", "title": "Beskrivning: " }
+    ],
+    "opacity": 0.75,
+    "visible": true
+  },
+  {
+  "name": "_huddingeop",
+    "title": "Huddingeop geojson",
+    "group": "aoi",
+    "source": "data/huddingeop.geojson",
+    "style": "mask",
+    "type": "GEOJSON",
+    "attributes": [
+      { "name": "name", "title": "Namn: " },
+      { "name": "type", "title": "Klassificering: " },
+      { "name": "description", "title": "Beskrivning: " }
+    ],
+    "opacity": 0.75,
+    "visible": true
+  },{"name":"gold_rivers_henrik_wgs84","title":"Gold Rivers Henrik Wgs84","group":"Google_Earth","source":"data/gold-rivers-henrik-wgs84.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"rufs2050","title":"Rufs2050","group":"Google_Earth","source":"data/RUFS 2050.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"kml_samples","title":"Kml Samples","group":"Google_Earth","source":"data/KML_Samples.geojson","style":"mask","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"test","title":"Test GeoJSON","group":"test","source":"data\\gold-rivers-henrik-wgs84.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"test","title":"Test GeoJSON","group":"test","source":"data\\KML_Samples.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"origo-cities","title":"Origokommuner","group":"test","source":"data/origo-cities-3857.geojson","style":"origo-logo","type":"GEOJSON","attributes":[{"name":"name"}],"visible":true},{"name":"origo-mask","opacity":0.25,"title":"origo-mask","group":"none","queryable":false,"source":"data/origo-mask-3857.geojson","style":"mask","type":"GEOJSON","visible":true},{"name":"osm-world","title":"OSM Crisp","queryable":false,"source":"osm_crisp","type":"WMS","style":"karta_farg","extent":[-1200128,4305920,2994176,8499968],"visible":true,"attribution":"(c) OSM Contributors"}],"styles":{"mask":[[{"stroke":{"color":"rgba(0,0,0,1.0)"},"fill":{"color":"rgba(0,0,0,1.0)"}}]],"origo-logo":[[{"circle":{"radius":16,"stroke":{"color":"rgba(0,0,0,1)","width":5},"fill":{"color":"rgba(255,255,255,0.9)"}}},{"circle":{"radius":4,"stroke":{"color":"rgba(0,0,0,0)","width":1},"fill":{"color":"rgba(37,129,196,1)"}}}]],"cirkel":[[{"circle":{"radius":6,"stroke":{"color":"rgba(0,0,0,1)","width":2},"fill":{"color":"rgba(0,0,0,0.5)"}}}]],"karta_gra":[[{"image":{"src":"img/png/gra.png"}}]],"karta_farg":[[{"image":{"src":"img/png/farg.png"}}]],"orto":[[{"image":{"src":"img/png/orto.png"}}]]}}
