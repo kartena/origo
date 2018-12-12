@@ -1,4 +1,4 @@
-import ImageStatic from 'ol/source/imagestatic';
+import ImageStatic from 'ol/source/ImageStatic';
 import GeoJSON from 'ol/format/GeoJSON';
 import $ from 'jquery';
 import viewer from '../viewer';
