@@ -1,5 +1,5 @@
 import ImageStatic from 'ol/source/imagestatic';
-import GeoJSON from 'ol/format/geojson';
+import GeoJSON from 'ol/format/GeoJSON';
 import $ from 'jquery';
 import viewer from '../viewer';
 import image from './image';
